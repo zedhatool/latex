@@ -20,6 +20,7 @@
 \newif\ifutopia
 \newif\ifdfbf
 \newif\ifsyllabus
+\newif\ifcourse
 \DeclareOption{twoside}{%
 \PassOptionsToClass{twoside}{article}
 \PassOptionsToPackage{top=1in, bottom=1in, inner=0.5in, outer=3in, marginparwidth=2.5in, marginparsep=0.25in}{geometry}
@@ -30,6 +31,7 @@
 \DeclareOption{oneside}{%
 \PassOptionsToPackage{margin=1.5in}{geometry}
 }
+\DeclareOption{course}{\coursetrue}
 \DeclareOption{syllabus}{\syllabustrue}
 \DeclareOption{utopia}{\utopiatrue}
 \DeclareOption{bembo}{\bembotrue}
@@ -140,7 +142,7 @@
 \renewcommand{\maketitle}{%
 \begingroup
     \thispagestyle{empty}
-    {\noindent\large\scshape\MakeLowercase{\@coursecode}}\\
+    \ifcourse{\noindent\large\scshape\MakeLowercase{\@coursecode}}\\ \fi
     {\Huge\bfseries\@title}\\[1em]
     {\Large\@author}\\
     \normalsize

@@ -22,7 +22,6 @@
 \newif\ifgaramond
 \newif\ifbembo
 \newif\ifutopia
-\newif\ifcourse
 \newif\ifdfbf
 \DeclareOption{twoside}{%
 \PassOptionsToClass{twoside,openright}{book}
@@ -32,7 +31,6 @@
 %Evil Font Size Hack---I need to find a better way of doing this
 \footmisctrue
 }
-\DeclareOption{course}{\coursetrue}
 \DeclareOption{utopia}{\utopiatrue}
 \DeclareOption{bembo}{\bembotrue}
 \DeclareOption{garamond}{\garamondtrue}
@@ -122,7 +120,7 @@
 %%%% CHAPTERS AND SECTIONS %%%%
 \RequirePackage{titlesec}
 \setcounter{secnumdepth}{0}%Only number "chapters" (=weeks)
-\titleformat{\chapter}[display]{\bfseries}{\normalsize\scshape{Topic \thechapter}}{0pt}{\large}[]
+\titleformat{\chapter}[display]{\bfseries}{\normalsize\scshape{topic \thechapter}}{0pt}{\large}[]
 \titleformat{\section}[hang]{\large\scshape\MakeLowercase}{\thesection}{1em}{}[]
 \ifdfbf
 \titleformat{\subsection}[runin]{\itshape\normalsize}{\thesubsection}{1ex}{}[.]
@@ -139,7 +137,7 @@
     \null\vfil\par
     \vspace*{\drop}
     \raggedright
-    \ifcourse{\normalsize\bfseries\scshape\MakeLowercase{\@coursecode}}\newline\fi
+    {\normalsize\bfseries\scshape\MakeLowercase{\@coursecode}}\newline
     {\Huge\bfseries\@title}\\[2\baselineskip]
     {\Large\@author}\newline
     {\noindent\oldfootnotesize\href{mailto:\em@il}{\em@il}}\\[2\baselineskip]

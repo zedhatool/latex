@@ -32,6 +32,11 @@
  }
 \ExplSyntaxOff
 
+%% BRAKETS %%
+\newcommand{\bra}[1]{\left\langle\mathinner{#1}\right\rvert}
+\newcommand{\ket}[1]{\left\lvert\mathinner{#1}\right\rangle}
+\newcommand{\braket}[2]{\left\langle\mathinner{#1}\middle\vert\mathinner{#2}\right\rangle}
+
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\Sym}{Sym}

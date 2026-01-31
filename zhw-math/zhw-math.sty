@@ -33,9 +33,12 @@
 \ExplSyntaxOff
 
 %% BRAKETS %%
-\newcommand{\bra}[1]{\left\langle\mathinner{#1}\right\rvert}
-\newcommand{\ket}[1]{\left\lvert\mathinner{#1}\right\rangle}
-\newcommand{\braket}[2]{\left\langle\mathinner{#1}\middle\vert\mathinner{#2}\right\rangle}
+\newcommand{\bra}[1]{\langle\mathinner{#1}\rvert}
+\newcommand{\Bra}[1]{\left\langle\mathinner{#1}\right\rvert}
+\newcommand{\ket}[1]{\lvert\mathinner{#1}\rangle}
+\newcommand{\Ket}[1]{\left\lvert\mathinner{#1}\right\rangle}
+\newcommand{\braket}[2]{\langle\mathinner{#1}vert\mathinner{#2}\rangle}
+\newcommand{\Braket}[2]{\left\langle\mathinner{#1}\middle\vert\mathinner{#2}\right\rangle}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}

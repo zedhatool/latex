@@ -63,7 +63,8 @@
 \DeclareMathOperator{\conv}{conv}%convex hull
 \DeclareMathOperator{\coker}{coker}
 
-\newcommand{\E}{\mathbf{E}}%expected value
+%\newcommand{\E}{\mathbf{E}}%expected value
+\DeclareMathOperator{\E}{E}
 
 %%%%%%%% OTHER MACROS %%%%%%
 \newcommand{\ac}[1]{\textls{\textsc{#1}}}
@@ -84,27 +85,25 @@
 }
 \renewcommand\qedsymbol{$\blacksquare$}
 
-%theorem styling
-\newtheoremstyle{proposition}%
-{2ex}%
-{2ex}%
-{}%body font
-{}%indent amount for whole theorem
-{\scshape}%head font
-{.}%punctuation after head
-{1em}%space after theorem head
-{}%head spec
+\declaretheoremstyle[%
+    spaceabove=2ex, spacebelow=2ex,
+    headfont=\normalfont\scshape,
+    notefont=\normalfont\scshape, notebraces={[}{]},
+    bodyfont=\normalfont,
+    postheadspace=1em,
+    qed=\qedsymbol,
+    headformat = swapnumber,
+]{proposition}
 
-%comment styling
-\newtheoremstyle{comment}%
-{2ex}%
-{2ex}%
-{}%body font
-{}%same as above but no indent.
-{\scshape}%head font
-{.}%punctuation after head
-{ }%space after theorem head
-{}%head spec
+
+\declaretheoremstyle[%
+    spaceabove=2ex, spacebelow=2ex,
+    headfont=\normalfont\scshape,
+    notefont=\normalfont\scshape, notebraces={[}{]},
+    bodyfont=\nromalfont,
+    postheadspace = 0pt,
+    headformat = swapnumber,
+]{comment}
 
 %using thmtools's \declaretheorem to declare theorems
 \declaretheorem[style=proposition, name=proposition, numberwithin=section, refname={proposition, propositions}, Refname={Proposition, Propositions}]{prop}
@@ -116,10 +115,10 @@
 \declaretheorem[style=proposition, sibling=prop, name=lemma, refname={lemma, lemmata}, Refname={Lemma, Lemmata}]{lem}
 \declaretheorem[style=proposition, name=lemma, numbered=no]{lem*}
 
-\declaretheorem[style=proposition, name=corollary, numberwithin=prop, refname={corollary, corollaries}, Refname={Corollary, Corollaries}]{corl}
+\declaretheorem[style=proposition, name=corollary, sibling=prop, refname={corollary, corollaries}, Refname={Corollary, Corollaries}]{corl}
 \declaretheorem[style=proposition, name=corollary, numbered=no]{corl*}
 
-\declaretheorem[style=proposition, name=definition, numberwithin=section, refname={definition, definitions}, Refname={Definition, Definitions}]{defn}
+\declaretheorem[style=proposition, name=definition, sibling=prop, refname={definition, definitions}, Refname={Definition, Definitions}]{defn}
 \declaretheorem[style=proposition, name=definition, numbered=no]{defn*}
 
 \declaretheorem[style=proposition, name=axiom, refname={axiom, axioms}, Refname={Axiom, Axioms}]{ax}

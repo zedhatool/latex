@@ -1,5 +1,5 @@
-\NeedsTeXFormat{LaTeX2e}[2024-11-01]
-\ProvidesPackage{zhw-math}[2025-10-29 v0.1 A package that correctly configures custom theorems with hyperref, as well as a few mathematics macros. For my own personal use.]
+\NeedsTeXFormat{LaTeX2e}[2025-06-01]
+\ProvidesPackage{zhw-math}[2026-06-20 v0.2 A package that correctly configures custom theorems with hyperref, as well as a few mathematics macros. For my own personal use.]
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -8,10 +8,12 @@
 %%% THE ORDER MATTERS HERE %%%
 \PassOptionsToPackage{hypertexnames = false}{hyperref}
 \PassOptionsToPackage{noabbrev, capitalise, nameinlink}{cleveref}
+\PassOptionsToPackage{thmtools-compat}{keytheorems}
 
 \RequirePackage{hyperref}
-\RequirePackage{amsthm}
-\RequirePackage{thmtools}
+%\RequirePackage{amsthm}
+%\RequirePackage{thmtools}
+\RequirePackage{keytheorems}
 \RequirePackage{cleveref}
 
 %%% MATHEMATICS MACROS %%%
@@ -95,11 +97,8 @@
     bodyfont=\normalfont,
     postheadspace=1em,
     headformat = {%
-        \NUMBER\ \NAME
-        \ifx\thmt@optarg\@empty\else
-            \ {\normalfont\scshape[\MakeLowercase{\thmt@optarg}]}%
-        \fi
-    },
+            \NUMBER\ \NAME\thmnote{\ {\normalfont\scshape[\MakeLowercase{#3}]}}%
+        },
 ]{proposition}
 
 
@@ -110,10 +109,7 @@
     bodyfont=\normalfont,
     postheadspace = 0pt,
     headformat = {%
-            \NUMBER\ \NAME
-            \ifx\thmt@optarg\@empty\else
-                \ {\normalfont\scshape[\MakeLowercase{\thmt@optarg}]}%
-            \fi
+            \NUMBER\ \NAME\thmnote{\ {\normalfont\scshape[\MakeLowercase{#3}]}}%
         },
 ]{comment}
 

@@ -18,6 +18,7 @@
 \PassOptionsToClass{oneside}{book}
 \PassOptionsToPackage{margin=1in}{geometry}}
 \newif\iffootmisc
+\newif\ifcochineal
 \newif\ifbookman
 \newif\ifgaramond
 \newif\ifbembo
@@ -31,6 +32,7 @@
 %Evil Font Size Hack---I need to find a better way of doing this
 \footmisctrue
 }
+\DeclareOption{cochineal}{\cochinealtrue}
 \DeclareOption{utopia}{\utopiatrue}
 \DeclareOption{bembo}{\bembotrue}
 \DeclareOption{garamond}{\garamondtrue}
@@ -41,7 +43,7 @@
 \dfbftrue
 }
 %Executing Options
-\ExecuteOptions{a4paper, 12pt, twoside, utopia}
+\ExecuteOptions{a4paper, 12pt, twoside, cochineal}
 \ProcessOptions\relax
 
 \LoadClass{book}
@@ -50,7 +52,10 @@
 \RequirePackage{emptypage}
 
 \RequirePackage[no-math]{fontspec}
-\ifutopia
+\ifcochineal
+\setmainfont[Numbers={Proportional, OldStyle}]{Cochineal}
+\setsansfont{Cabin}[scale=MatchUppercase]
+\fi\ifutopia
 \setmainfont[Numbers={Proportional, OldStyle}]{Erewhon}
 \setsansfont{Cabin}[scale=MatchUppercase]
 \fi
@@ -119,9 +124,8 @@
 
 %%%% CHAPTERS AND SECTIONS %%%%
 \RequirePackage{titlesec}
-\setcounter{secnumdepth}{0}%Only number "chapters" (=weeks)
 \titleformat{\chapter}[display]{\bfseries}{\normalsize\scshape{topic \thechapter}}{0pt}{\large}[]
-\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{\thesection}{1em}{}[]
+\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{}{0pt}{}[]
 \ifdfbf
 \titleformat{\subsection}[runin]{\itshape\normalsize}{\thesubsection}{1ex}{}[.]
 \else

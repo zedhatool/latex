@@ -21,6 +21,7 @@
 \newif\ifgaramond
 \newif\ifbembo
 \newif\ifutopia
+\newif\ifcochineal
 \newif\ifdfbf
 \newif\ifcoursepaper
 \DeclareOption{coursepaper}{\coursepapertrue}
@@ -28,13 +29,14 @@
 \DeclareOption{bembo}{\bembotrue}
 \DeclareOption{garamond}{\garamondtrue}
 \DeclareOption{bookman}{\bookmantrue}
+\DeclareOption{cochineal}{\cochinealtrue}
 \newcommand{\textdf}[1]{\textit{#1}}
 \DeclareOption{dfbf}{%
 \renewcommand{\textdf}[1]{\textbf{#1}}
 \dfbftrue
 }
 %Executing Options
-\ExecuteOptions{a4paper, 12pt, utopia}
+\ExecuteOptions{a4paper, 12pt, cochineal}
 \ProcessOptions\relax
 
 \LoadClass{article}
@@ -56,6 +58,10 @@
 \ifbookman
 \setmainfont[Numbers={Proportional, OldStyle}]{TeX Gyre Bonum}
 \setsansfont{Verdana}[scale=MatchUppercase]
+\fi
+\ifcochineal
+\setmainfont[Numbers={Proportional, OldStyle}]{Cochineal}
+\setsansfont{Cabin}[scale=MatchUppercase]
 \fi
 \setmonofont{Latin Modern Mono}[scale=MatchLowercase]
 
@@ -85,8 +91,8 @@
 
 %%%% CHAPTERS AND SECTIONS %%%%
 \RequirePackage{titlesec}
-\setcounter{secnumdepth}{0}
-\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{\thesection}{1em}{}[]
+%\setcounter{secnumdepth}{0}
+\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{}{0pt}{}[]
 \ifdfbf
 \titleformat{\subsection}[runin]{\itshape\normalsize}{\thesubsection}{1ex}{}[.]
 \else

@@ -1,3 +1,5 @@
 ls-R.*
 .*
 !.gitignore
+.DS_Store
+ls-R

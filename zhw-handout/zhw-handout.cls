@@ -129,9 +129,9 @@
 \RequirePackage{titlesec}
 \titleformat{\section}[hang]{\large\scshape\MakeLowercase}{}{0pt}{}[]
 \ifdfbf
-\titleformat{\subsection}[runin]{\itshape\normalsize}{\thesubsection}{1ex}{}[.]
+\titleformat{\subsection}[runin]{\itshape\normalsize}{}{0pt}{}[.]
 \else
-\titleformat{\subsection}[runin]{\bfseries\normalsize}{\thesubsection}{1ex}{}[.]
+\titleformat{\subsection}[runin]{\bfseries\normalsize}{}{0pt}{}[.]
 \fi
 \RequirePackage{hyperref}
 

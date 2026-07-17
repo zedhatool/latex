@@ -1,0 +1,9 @@
+% ls-R -- filename database for kpathsea; do not change this line.
+./:
+bib
+ls-R
+
+./bib:
+ls-R
+master.bib
+

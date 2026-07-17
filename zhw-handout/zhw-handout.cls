@@ -14,6 +14,7 @@
 \DeclareOption{11pt}{\PassOptionsToClass{11pt}{article}}
 \DeclareOption{12pt}{\PassOptionsToClass{12pt}{article}}
 \newif\iffootmisc
+\newif\ifcochineal
 \newif\ifbookman
 \newif\ifgaramond
 \newif\ifbembo
@@ -30,7 +31,12 @@
 \DeclareOption{oneside}{%
 \PassOptionsToPackage{margin=1.5in}{geometry}
 }
-\DeclareOption{syllabus}{\syllabustrue}
+\DeclareOption{syllabus}{%
+\syllabustrue
+\PassOptionsToClass{oneside}{article}
+\PassOptionsToPackage{margin=1.5in}{geometry}
+}
+\DeclareOption{cochineal}{\cochinealtrue}
 \DeclareOption{utopia}{\utopiatrue}
 \DeclareOption{bembo}{\bembotrue}
 \DeclareOption{garamond}{\garamondtrue}
@@ -41,7 +47,7 @@
 \dfbftrue
 }
 %Executing Options
-\ExecuteOptions{a4paper, 12pt, twoside, utopia}
+\ifsyllabus\ExecuteOptions{a4paper, 12pt, oneside, cochineal}\else\ExecuteOptions{a4paper, 12pt, twoside, cochineal}\fi
 \ProcessOptions\relax
 
 \LoadClass{article}
@@ -50,6 +56,10 @@
 \RequirePackage{hanging}
 
 \RequirePackage[no-math]{fontspec}
+\ifcochineal
+\setmainfont[Numbers={Proportional, OldStyle}]{Cochineal}
+\setsansfont{Cabin}[scale=MatchUppercase]
+\fi
 \ifutopia
 \setmainfont[Numbers={Proportional, OldStyle}]{Erewhon}
 \setsansfont{Cabin}[scale=MatchUppercase]
@@ -117,8 +127,7 @@
 
 %%%% CHAPTERS AND SECTIONS %%%%
 \RequirePackage{titlesec}
-\setcounter{secnumdepth}{0}
-\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{\thesection}{1em}{}[]
+\titleformat{\section}[hang]{\large\scshape\MakeLowercase}{}{0pt}{}[]
 \ifdfbf
 \titleformat{\subsection}[runin]{\itshape\normalsize}{\thesubsection}{1ex}{}[.]
 \else

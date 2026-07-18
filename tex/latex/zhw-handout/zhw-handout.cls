@@ -165,11 +165,11 @@
 \newcounter{week}
 
 \newenvironment{week}[1][]{%
-\refstepcounter{week}{\vspace{1em}\noindent\normalsize\scshape week~\theweek: \MakeLowercase{#1}}\vspace{1em}\addcontentsline{toc}{subsection}{\protect{Week \theweek: #1}}\par\begin{hangparas}{15pt}{1}}{%
+\refstepcounter{week}{\vspace{1em}\noindent\normalsize\scshape week~\theweek: \MakeLowercase{#1}}\vspace{1em}\addcontentsline{toc}{subsection}{\protect{Week \theweek: #1}}\par\nobreak\begin{hangparas}{15pt}{1}}{%
 \end{hangparas}}
 
 \newenvironment{recommended}{%
-\vspace{1ex}\noindent\@oldfootnotesize{\textit{Recommended}}\par\@oldfootnotesize\begin{hangparas}{15pt}{1}}{%
+\vspace{1ex}\noindent\@oldfootnotesize{\textit{Recommended}}\par\nobreak\@oldfootnotesize\begin{hangparas}{15pt}{1}}{%
 \end{hangparas}}
 
 \AtBeginDocument{%
